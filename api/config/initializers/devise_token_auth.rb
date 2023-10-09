@@ -42,15 +42,15 @@ DeviseTokenAuth.setup do |config|
   # config.default_callbacks = true
 
   # Makes it possible to change the headers names
-  # config.headers_names = {
-  #   :'authorization' => 'Authorization',
-  #   :'access-token' => 'access-token',
-  #   :'client' => 'client',
-  #   :'expiry' => 'expiry',
-  #   :'uid' => 'uid',
-  #   :'token-type' => 'token-type'
-  # }
-
+  config.change_headers_on_each_request = true
+  config.token_lifespan = 2.weeks
+  config.headers_names = {:'access-token' => 'access-token',
+                          :'client' => 'client',
+                          :'expiry' => 'expiry',
+                          :'uid' => 'uid',
+                          :'token-type' => 'token-type' ,
+                          :'authorization' => 'authorization'
+                        }
   # Makes it possible to use custom uid column
   # config.other_uid = "foo"
 
@@ -63,15 +63,4 @@ DeviseTokenAuth.setup do |config|
   # devise confirmable module. If you want to use devise confirmable module and
   # send email, set it to true. (This is a setting for compatibility)
   # config.send_confirmation_email = true
-  DeviseTokenAuth.setup do |config|
-    config.change_headers_on_each_request = false
-    config.token_lifespan = 2.weeks
-    config.headers_names = {:'access-token' => 'access-token',
-                            :'client' => 'client',
-                            :'expiry' => 'expiry',
-                            :'uid' => 'uid',
-                            :'token-type' => 'token-type' ,
-                            :'authorization' => 'authorization'
-                          }
-  end
 end
