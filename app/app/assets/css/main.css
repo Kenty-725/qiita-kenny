@@ -1,0 +1,129 @@
+/* #一旦ここに全て荒く書いてからファイルの分割を行う */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* color: red; */
+}
+
+.signup_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+header {
+  margin: 30px 8px;
+  flex: 1;
+}
+
+.header_container {
+  background-color: #55c500;
+  padding: 4px 8px;
+  display: inline-block;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.container {
+  margin: 0 auto;
+  width: 70%;
+  flex: 1;
+  /* max-width: 1200px; */
+}
+
+.container h2 {
+  /* #下線部に黒のボーターをつける */
+  /* border-bottom: solid 1px #000;
+  margin-bottom: 20px;
+  padding-bottom: 20px; */
+  letter-spacing: 0.2rem;
+  font-size: 1.6rem;
+}
+
+footer {
+  background-color: #000;
+  padding: 20px 0 20px 15px;
+  letter-spacing: 0.2rem;
+  font-size: 1.6rem;
+  height: auto;
+  color: #fff;
+  flex: 1;
+}
+
+.signup_form {
+  width: 100%;
+  border-top: solid 1px #000;
+  margin: 20px 0 50px 0;
+  padding: 20px 0 0px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: flex-start; /* 子要素を左寄せに配置 */
+  align-items: flex-start;
+  /* justify-content: center; */
+}
+
+.signup_form_left p {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #000;
+  font-size: 0.9rem;
+  color: rgb(0 0 0 / 38%);
+  width: 100%;
+}
+
+.signup_form_right input {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px 0 8px 5px;
+  height: 30px;
+  margin-bottom: 10px;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgb(0 0 0 / 38%);
+}
+.signup_form_left {
+  /* 余白やマージンの設定を確認し、必要に応じて調整 */
+  width: 100%;
+  padding-right: 8px;
+  margin: 0;
+  border-right: 1px solid #000;
+}
+
+.signup_form_right {
+  /* 余白やマージンの設定を確認し、必要に応じて調整 */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.form_container {
+  margin: 30px 0;
+}
+
+.resister_button {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  display: block;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  background-color: #55c500;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
