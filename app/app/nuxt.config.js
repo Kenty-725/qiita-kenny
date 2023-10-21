@@ -7,9 +7,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "app",
+    title: "Qiita-kenny",
     htmlAttrs: {
-      lang: "en",
+      lang: "ja",
     },
     meta: [
       { charset: "utf-8" },
@@ -45,12 +45,6 @@ export default {
     baseURL: "http://localhost:3001",
   },
   auth: {
-    redirect: {
-      home: "/sample",
-      login: "/login",
-      logout: "/sample",
-      callback: false,
-    },
     strategies: {
       local: {
         endpoints: {

@@ -10,9 +10,10 @@
         <div class="signup_form_left">
           <img src="https://placehold.jp/300x300.png" alt="" />
           <p>
-            もしQiitaのアカウントを持っていない場合は<a href="../signup"
-              >新規登録</a
-            >から
+            もしQiitaのアカウントを持っていない場合は<NuxtLink to="/signup"
+              >新規登録</NuxtLink
+            >
+            から
           </p>
         </div>
 
@@ -70,11 +71,8 @@ export default {
             email: this.email,
           },
         });
-
-        // ログインが成功した場合にリダイレクト
         this.$router.push("/sample");
       } catch (error) {
-        // ログインが失敗した場合にエラーメッセージを表示
         this.error = error.response.data.errors;
       }
     },

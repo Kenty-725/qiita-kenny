@@ -12,7 +12,8 @@
         <div class="signup_form_left">
           <img src="https://placehold.jp/300x300.png" alt="" />
           <p>
-            もしQiitaのアカウントを持っている場合は<a href="*">ログイン</a>から
+            もしQiitaのアカウントを持っている場合は
+            <NuxtLink to="/login">ログイン</NuxtLink>から
           </p>
         </div>
         <div class="signup_form_right">
