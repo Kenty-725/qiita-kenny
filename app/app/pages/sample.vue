@@ -16,9 +16,8 @@
         <b-button v-if="!this.$auth.loggedIn" variant="info" to="/login"
           >ログイン</b-button
         >
-        <b-button v-if="this.$auth.loggedIn" variant="danger" @click="logout"
-          >ログアウト</b-button
-        >
+        <!-- <b-button v-if="this.$auth.loggedIn" variant="danger" @click="logout" -->
+        <b-button variant="danger" @click="logout">ログアウト</b-button>
       </b-jumbotron>
     </b-col>
   </b-container>
@@ -36,6 +35,7 @@ export default {
         localStorage.removeItem("client");
         localStorage.removeItem("uid");
         localStorage.removeItem("token-type");
+        localStorage.removeItem("authorization");
 
         window.location.reload();
       });

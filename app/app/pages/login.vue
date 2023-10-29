@@ -71,7 +71,7 @@ export default {
             email: this.email,
           },
         });
-        this.$router.push("/sample");
+        this.$router.push("/");
       } catch (error) {
         this.error = error.response.data.errors;
       }

@@ -22,11 +22,6 @@ li {
   list-style-type: none;
 }
 
-header {
-  margin: 30px 8px;
-  flex: 1;
-}
-
 .header_container {
   background-color: #55c500;
   padding: 4px 8px;
@@ -54,6 +49,7 @@ header {
 }
 
 footer {
+  margin-top: auto;
   background-color: #000;
   padding: 20px 0 20px 15px;
   letter-spacing: 0.2rem;
