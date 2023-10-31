@@ -12,9 +12,11 @@
         <div class="content_right">
           <p class="post_user_name">@{{ i.user.name }}</p>
           <time class="post_date">{{ i.formatted_date }}</time>
-          <h3 class="post_title">
-            {{ i.title }}
-          </h3>
+          <nuxt-link :to="`/post/${i.id}`">
+            <h3 class="post_title">
+              {{ i.title }}
+            </h3>
+          </nuxt-link>
           <p>タグ</p>
           <p>いいね数</p>
         </div>

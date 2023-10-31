@@ -2,13 +2,15 @@
   <header>
     <div class="contents">
       <div class="header_left">
-        <p class="header_container">Qiita</p>
+        <nuxt-link to="/">
+          <p class="header_container">Qiita</p>
+        </nuxt-link>
       </div>
       <div class="header_right">
         <ul>
           <li>
             <input
-              type="text"
+              type="search"
               class="content_search"
               placeholder="記事を検索"
             />
@@ -17,7 +19,7 @@
             <div class="circle"></div>
           </li>
           <li>
-            <nuxt-link to="/post/postForm">
+            <nuxt-link to="/post">
               <button class="post_page">投稿する</button>
             </nuxt-link>
           </li>
@@ -48,6 +50,7 @@ li {
 .content_search {
   height: 50px;
   width: 250px;
+  border: 1px solid black;
 }
 
 .circle {

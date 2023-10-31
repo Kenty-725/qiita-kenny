@@ -1,9 +1,8 @@
 class Api::V1::PostsController < ApplicationController
-    # before_action :only:[:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: [:index, :show]
+    before_action :set_post, only:[:show, :edit, :update, :destroy]
+    
     def index
         posts = Post.includes(:user).order(created_at: :desc)
-        # render json: posts.as_json(include: { user: { only: [:id,  :name, :image] } })
         render json: posts.as_json(include: { user: { only: [:id, :name, :image] } },
         methods: :formatted_date)
     end
@@ -17,9 +16,17 @@ class Api::V1::PostsController < ApplicationController
             end
     end
 
+    def show
+        render json: @post
+    end
+
     private 
     def post_params
         params.require(:post).permit(:title, :content,)
+    end
+
+    def set_post
+        @post = Post.find(params[:id])
     end
 
 end
