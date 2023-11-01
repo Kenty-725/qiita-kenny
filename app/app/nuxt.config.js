@@ -53,8 +53,8 @@ export default {
   content: {},
   markdownit: {
     // ref: https://github.com/markdown-it/markdown-it
-    injected: true, // $mdを使ってどこからでも使えるようになる
-    breaks: true, // 改行を<br>に変換してくれる
+    injected: true,
+    breaks: true,
     linkify: true,
     breaks: true,
     use: ["markdown-it-highlightjs"],

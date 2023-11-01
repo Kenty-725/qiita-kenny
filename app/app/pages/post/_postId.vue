@@ -24,7 +24,6 @@ export default {
     const response = await $axios.get(
       `http://localhost:3001/api/v1/posts/${id}`
     );
-    console.log(response.data);
     return {
       data: response.data,
     };
