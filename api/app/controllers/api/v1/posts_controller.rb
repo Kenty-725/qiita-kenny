@@ -4,7 +4,7 @@ class Api::V1::PostsController < ApplicationController
     def index
         posts = Post.includes(:user).order(created_at: :desc)
         render json: posts.as_json(include: { user: { only: [:id, :name, :image] } },
-        methods: :formatted_date)
+        methods: :formatted_created_at)
     end
 
     def create
@@ -17,7 +17,7 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def show
-        render json: @post
+        render json: @post.as_json(methods: [:formatted_created_at, :formatted_updated_at])
     end
 
     private 

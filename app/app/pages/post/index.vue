@@ -37,8 +37,10 @@ export default {
     async newPost() {
       try {
         await this.$axios.post("/api/v1/posts", {
-          title: this.title,
-          content: this.content,
+          post: {
+            title: this.title,
+            content: this.content,
+          },
         });
         this.$router.push("/");
       } catch (e) {
@@ -53,7 +55,6 @@ export default {
 .content_wrapper {
   width: 97%;
   margin: 0 auto;
-  /* border-bottom: 1px solid black; */
 }
 
 li > input,

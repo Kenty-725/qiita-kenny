@@ -4,12 +4,15 @@
       <p class="circle"></p>
       <div class="content_right">
         <p>@kenny</p>
-        <p>更新日:***** 投稿日:*****</p>
+        <p>
+          更新日:{{ data.formatted_updated_at }} 投稿日:{{
+            data.formatted_created_at
+          }}
+        </p>
       </div>
     </div>
     <h1>{{ data.title }}</h1>
     <span>タグ1</span>
-    <!-- <p>{{ data }}</p> -->
     <div
       class="markdown markdown_wrapper"
       v-html="$md.render(data.content)"

@@ -11,7 +11,7 @@
         </div>
         <div class="content_right">
           <p class="post_user_name">@{{ i.user.name }}</p>
-          <time class="post_date">{{ i.formatted_date }}</time>
+          <time class="post_date">{{ i.formatted_created_at }}</time>
           <nuxt-link :to="`/post/${i.id}`">
             <h3 class="post_title">
               {{ i.title }}
