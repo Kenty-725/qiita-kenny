@@ -36,6 +36,7 @@ services:
       - seccomp:unconfined
     volumes:
       - db:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - "4306:3306"
 

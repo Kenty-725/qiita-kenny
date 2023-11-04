@@ -98,7 +98,6 @@ export default {
           this.$router.push("/sample");
         }
       } catch (e) {
-        console.log(e);
         this.error = e.response.data.errors.full_messages;
       }
     },

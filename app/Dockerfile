@@ -1,5 +1,5 @@
 # app/Dockerfile.nuxt
-FROM node:16
+FROM node:14
 
 # 作業ディレクトリの設定
 WORKDIR /usr/src/app
