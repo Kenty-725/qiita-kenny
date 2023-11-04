@@ -23,11 +23,46 @@
               <button class="post_page">投稿する</button>
             </nuxt-link>
           </li>
+          <li>
+            <b-button v-if="!this.$auth.loggedIn" variant="info" to="/login"
+              >ログイン</b-button
+            >
+          </li>
+          <li>
+            <b-button
+              v-if="this.$auth.loggedIn"
+              variant="danger"
+              @click="logout"
+            >
+              ログアウト</b-button
+            >
+          </li>
         </ul>
       </div>
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {};
+  },
+  methods: {
+    async logout() {
+      await this.$auth.logout().then(() => {
+        localStorage.removeItem("access-token");
+        localStorage.removeItem("client");
+        localStorage.removeItem("uid");
+        localStorage.removeItem("token-type");
+        localStorage.removeItem("authorization");
+
+        window.location.reload();
+      });
+    },
+  },
+};
+</script>
 
 <style>
 header {
