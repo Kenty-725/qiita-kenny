@@ -17,7 +17,16 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def show
-        render json: @post.as_json(methods: [:formatted_created_at, :formatted_updated_at])
+        hoge = current_user&.id === @post.user_id
+        render json: @post.as_json(methods: [:formatted_created_at, :formatted_updated_at]).merge(hoge: hoge)
+    end
+
+    def update
+        if @post.update(post_params)
+            render json: @post
+        else
+            render json: @post.erros, status: 422
+        end
     end
 
     private 

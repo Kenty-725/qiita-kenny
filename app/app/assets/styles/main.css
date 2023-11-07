@@ -36,14 +36,9 @@ li {
   margin: 0 auto;
   width: 70%;
   flex: 1;
-  /* max-width: 1200px; */
 }
 
 .container h2 {
-  /* #下線部に黒のボーターをつける */
-  /* border-bottom: solid 1px #000;
-  margin-bottom: 20px;
-  padding-bottom: 20px; */
   letter-spacing: 0.2rem;
   font-size: 1.6rem;
 }
@@ -67,9 +62,8 @@ footer {
   display: flex;
   flex-direction: row;
   gap: 0;
-  justify-content: flex-start; /* 子要素を左寄せに配置 */
+  justify-content: flex-start;
   align-items: flex-start;
-  /* justify-content: center; */
 }
 
 .signup_form_left p {
@@ -92,7 +86,6 @@ footer {
   border: 1px solid rgb(0 0 0 / 38%);
 }
 .signup_form_left {
-  /* 余白やマージンの設定を確認し、必要に応じて調整 */
   width: 100%;
   padding-right: 8px;
   margin: 0;
@@ -100,7 +93,6 @@ footer {
 }
 
 .signup_form_right {
-  /* 余白やマージンの設定を確認し、必要に応じて調整 */
   width: 100%;
   padding: 0;
   margin: 0;

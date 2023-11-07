@@ -27,6 +27,7 @@
             <b-button v-if="!this.$auth.loggedIn" variant="info" to="/login"
               >ログイン</b-button
             >
+            <!-- <p>{{ this.$auth.loggedIn }}</p> -->
           </li>
           <li>
             <b-button
