@@ -39,7 +39,7 @@ export default {
       `http://localhost:3001/api/v1/posts/${id}`
     );
     console.log(response.data);
-    if (!response.data.hoge) {
+    if (!response.data.is_current_user_post_owner) {
       return redirect(`/post/${id}`);
     }
     return {

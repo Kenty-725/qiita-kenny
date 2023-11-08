@@ -17,8 +17,8 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def show
-        hoge = current_user&.id === @post.user_id
-        render json: @post.as_json(methods: [:formatted_created_at, :formatted_updated_at]).merge(hoge: hoge)
+        is_current_user_post_owner = current_user&.id == @post.user_id
+        render json: @post.as_json(methods: [:formatted_created_at, :formatted_updated_at]).merge(is_current_user_post_owner: is_current_user_post_owner)
     end
 
     def update

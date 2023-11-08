@@ -10,7 +10,10 @@
           />
         </li>
         <li>
-          <nuxt-link :to="`/post/${data.id}/edit`" v-if="data.hoge">
+          <nuxt-link
+            :to="`/post/${data.id}/edit`"
+            v-if="data.is_current_user_post_owner"
+          >
             <font-awesome-icon
               :icon="['fas', 'pen-to-square']"
               class="font-awesome-size"
@@ -50,7 +53,6 @@ export default {
     const response = await $axios.get(
       `http://localhost:3001/api/v1/posts/${id}`
     );
-    console.log(response.data);
     return {
       data: response.data,
     };
