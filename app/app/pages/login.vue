@@ -1,8 +1,5 @@
 <template>
   <div class="signup_wrapper">
-    <header>
-      <p class="header_container">Qiita</p>
-    </header>
     <div class="container">
       <h2>Qiitaにログイン</h2>
       <Notification :message="error" v-if="error" class="mb-4 pb-3" />
@@ -46,15 +43,12 @@
         </div>
       </div>
     </div>
-
-    <footer>
-      <p>Qiita</p>
-    </footer>
   </div>
 </template>
 
 <script>
 export default {
+  layout: "auth",
   data: function () {
     return {
       email: "",
