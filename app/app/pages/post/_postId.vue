@@ -1,5 +1,4 @@
 <template>
-  <!-- <div style="display: flex"> -->
   <div class="post_content_wrapper">
     <div class="wrapper_left">
       <ul>
@@ -42,7 +41,6 @@
         v-html="$md.render(data.content)"
       ></div>
     </div>
-    <!-- </div> -->
   </div>
 </template>
 

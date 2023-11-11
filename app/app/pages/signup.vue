@@ -1,8 +1,5 @@
 <template>
   <div class="signup_wrapper">
-    <header>
-      <p class="header_container">Qiita</p>
-    </header>
     <div class="container">
       <h2>Qiitaへようこそ</h2>
       <p>新規登録して利用を開始しましょう。</p>
@@ -61,15 +58,12 @@
         </div>
       </div>
     </div>
-
-    <footer>
-      <p>Qiita</p>
-    </footer>
   </div>
 </template>
 
 <script>
 export default {
+  layout: "auth",
   data: function () {
     return {
       name: "",
