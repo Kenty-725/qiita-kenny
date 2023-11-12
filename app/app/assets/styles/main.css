@@ -162,3 +162,12 @@ footer {
 .markdown table tr:last-child td:last-child {
   border-bottom-right-radius: 8px;
 }
+
+.post_submit {
+  display: inline-block;
+  margin-left: auto;
+  text-align: center;
+  padding: 1px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
