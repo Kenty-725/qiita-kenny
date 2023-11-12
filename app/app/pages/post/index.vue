@@ -67,16 +67,6 @@ textarea {
   height: 50vh;
 }
 
-.post_submit {
-  display: block;
-  margin-left: auto;
-  text-align: center;
-  padding: 1px 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
-}
-
 .post_submit_container {
   border-top: 1px solid black;
   padding: 10px;
