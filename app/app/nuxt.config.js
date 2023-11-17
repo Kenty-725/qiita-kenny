@@ -45,6 +45,7 @@ export default {
     "@nuxtjs/auth",
     "@nuxt/content",
     "@nuxtjs/markdownit",
+    "@nuxtjs/vuetify",
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

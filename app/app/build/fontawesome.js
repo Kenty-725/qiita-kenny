@@ -9,6 +9,7 @@ const solid = [
   "faEdit",
   "faUpload",
   "faUser",
+  "faTag",
 ];
 
 const regular = ["faStar", "faHeart"];

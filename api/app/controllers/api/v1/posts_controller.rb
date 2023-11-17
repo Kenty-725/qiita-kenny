@@ -33,6 +33,11 @@ class Api::V1::PostsController < ApplicationController
         @post.destroy
     end
 
+    def own_posts
+        current_user_posts = current_user.posts.order(created_at: :desc)
+        render json: current_user_posts.as_json(methods: [:formatted_created_at, :formatted_updated_at])
+    end
+
     private 
     def post_params
         params.require(:post).permit(:title, :content,)
