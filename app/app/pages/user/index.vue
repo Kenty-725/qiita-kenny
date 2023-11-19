@@ -57,7 +57,6 @@ export default {
   },
   async asyncData({ $axios }) {
     const response = await $axios.get(`http://localhost:3001/api/v1/users/me`);
-    console.log(response.data);
     return {
       data: response.data,
     };
