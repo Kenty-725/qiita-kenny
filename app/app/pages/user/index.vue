@@ -1,10 +1,10 @@
 <template>
-  <div class="wrapper flex">
+  <div class="wrapper flex_center">
     <div class="wrapper_left">
       <div class="profile_box">
         <p class="circle">写真</p>
         <p class="user_name">@{{ data.name }}</p>
-        <div class="count_box flex">
+        <div class="count_box">
           <div class="post_count_box">
             <p>1</p>
             <p>投稿</p>
@@ -23,14 +23,14 @@
         <button
           @click="showPosts"
           class="btn_post"
-          v-bind:class="{ btn_post_active: isPost, btn_post_inactive: !isPost }"
+          :class="{ btn_post_active: isPost, btn_post_inactive: !isPost }"
         >
           記事
         </button>
         <button
           @click="showLikes"
           class="btn_post"
-          v-bind:class="{ btn_post_active: !isPost, btn_post_inactive: isPost }"
+          :class="{ btn_post_active: !isPost, btn_post_inactive: isPost }"
         >
           いいね
         </button>
@@ -76,6 +76,10 @@ export default {
 <style>
 .flex {
   display: flex;
+}
+
+.flex_center {
+  display: flex;
   justify-content: center;
 }
 
@@ -111,6 +115,8 @@ export default {
   border-top: 1px solid #000;
   margin-top: 20px;
   padding-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .user_name {

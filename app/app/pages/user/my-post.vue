@@ -10,7 +10,7 @@
       <p class="post_date">{{ i.formatted_created_at }}</p>
     </div>
   </div>
-  <div class="mypost_wrapper" v-else>
+  <div v-else class="mypost_wrapper">
     <p>投稿がありません</p>
   </div>
 </template>

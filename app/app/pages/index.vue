@@ -46,6 +46,10 @@ export default Vue.extend({
   padding: 15px;
 }
 
+.flex {
+  display: flex;
+}
+
 .left {
   flex: 1;
 }
