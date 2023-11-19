@@ -12,6 +12,7 @@
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/markdownit": "^2.0.0",
+    "@nuxtjs/vuetify": "^1.12.3",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.25.3",
     "markdown-it-highlightjs": "^4.0.1",

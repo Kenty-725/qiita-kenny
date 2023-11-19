@@ -16,26 +16,35 @@
             />
           </li>
           <li>
-            <div class="circle"></div>
+            <v-menu offset-y>
+              <template v-slot:activator="{ on }">
+                <div class="circle" v-on="on"></div>
+              </template>
+              <v-list>
+                <v-list-item>
+                  <v-list-item-title>
+                    <nuxt-link to="/user">マイページ</nuxt-link>
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item v-if="this.$auth.loggedIn">
+                  <v-list-item-title>
+                    <b-button variant="danger" @click="logout">
+                      ログアウト</b-button
+                    >
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item v-if="!this.$auth.loggedIn">
+                  <v-list-item-title>
+                    <b-button variant="info" to="/login">ログイン</b-button>
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </li>
           <li>
             <nuxt-link to="/post">
               <button class="post_page">投稿する</button>
             </nuxt-link>
-          </li>
-          <li>
-            <b-button v-if="!this.$auth.loggedIn" variant="info" to="/login"
-              >ログイン</b-button
-            >
-          </li>
-          <li>
-            <b-button
-              v-if="this.$auth.loggedIn"
-              variant="danger"
-              @click="logout"
-            >
-              ログアウト</b-button
-            >
           </li>
         </ul>
       </div>
@@ -45,7 +54,7 @@
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {};
   },
   methods: {
@@ -57,7 +66,7 @@ export default {
         localStorage.removeItem("token-type");
         localStorage.removeItem("authorization");
 
-        window.location.reload();
+        this.$router.push("/");
       });
     },
   },
@@ -95,6 +104,7 @@ li {
   border-radius: 50%;
   text-align: center;
   line-height: 50px;
+  cursor: pointer;
 }
 
 .post_page {

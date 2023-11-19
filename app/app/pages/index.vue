@@ -5,7 +5,7 @@
       <div class="user_lanking">ここにリストが表示される</div>
     </div>
     <div class="right">
-      <div v-for="(i, index) in data" :key="index" class="content_box">
+      <div v-for="(i, index) in data" :key="index" class="content_box flex">
         <div class="content_left">
           <p class="circle">写真</p>
         </div>
@@ -17,7 +17,7 @@
               {{ i.title }}
             </h3>
           </nuxt-link>
-          <p>タグ</p>
+          <p><font-awesome-icon :icon="['fas', 'tag']" />タグ</p>
           <p>いいね数</p>
         </div>
       </div>
@@ -46,17 +46,16 @@ export default Vue.extend({
   padding: 15px;
 }
 
+.flex {
+  display: flex;
+}
+
 .left {
   flex: 1;
 }
 
 .right {
   flex: 1;
-}
-
-.content_box {
-  display: flex;
-  padding: 5px 8px;
 }
 
 .content_left {
@@ -67,6 +66,7 @@ export default Vue.extend({
   border-radius: 10px;
   background-color: #ffffff;
   margin-bottom: 5px;
+  padding: 5px 8px;
 }
 
 .user_lanking {

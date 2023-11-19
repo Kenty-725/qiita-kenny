@@ -2,7 +2,7 @@ class Api::V1::PostsController < ApplicationController
     before_action :set_post, only:[:show, :edit, :update, :destroy]
     
     def index
-        posts = Post.includes(:user).order(created_at: :desc)
+        posts = Post.includes(:user)
         render json: posts.as_json(include: { user: { only: [:id, :name, :image] } },
         methods: :formatted_created_at)
     end
@@ -31,6 +31,11 @@ class Api::V1::PostsController < ApplicationController
 
     def destroy
         @post.destroy
+    end
+
+    def own_posts
+        current_user_posts = current_user.posts
+        render json: current_user_posts.as_json(methods: [:formatted_created_at, :formatted_updated_at])
     end
 
     private 
