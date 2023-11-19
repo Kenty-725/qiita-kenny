@@ -66,7 +66,7 @@ export default {
         localStorage.removeItem("token-type");
         localStorage.removeItem("authorization");
 
-        window.location.reload();
+        this.$router.push("/");
       });
     },
   },
