@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
          :recoverable, :validatable
   include DeviseTokenAuth::Concerns::User
   has_many :posts, dependent: :destroy
+  enum status: { inactive: 0, active: 1 }
 end

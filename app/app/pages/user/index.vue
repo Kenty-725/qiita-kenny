@@ -14,8 +14,12 @@
             <p>いいね</p>
           </div>
         </div>
-        <p>自己紹介文がここに入る。</p>
-        <button class="btn_edit">プロフィールを編集する</button>
+        <p>{{ data.profile_text }}</p>
+        <button class="btn_edit">
+          <nuxt-link to="/user/profile-edit">
+            プロフィールを編集する
+          </nuxt-link>
+        </button>
       </div>
     </div>
     <div class="wrapper_right1">

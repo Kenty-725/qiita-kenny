@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :posts do
         get 'own_posts', on: :collection
       end
-      resources :users, only: [] do
+      resources :users, only: [:update] do
         get 'me', on: :collection     
       end
     end

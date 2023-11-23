@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_21_081228) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_20_121445) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -39,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_081228) do
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_text"
+    t.integer "status", default: 1
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
