@@ -34,8 +34,12 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def own_posts
-        current_user_posts = current_user.posts
-        render json: current_user_posts.as_json(methods: [:formatted_created_at, :formatted_updated_at])
+        current_user_posts = current_user&.posts
+        if current_user_posts
+            render json: current_user_posts.as_json(methods: [:formatted_created_at, :formatted_updated_at])
+        else
+            render json: [], status: :not_found
+        end
     end
 
     private 

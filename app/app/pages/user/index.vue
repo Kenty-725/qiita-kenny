@@ -2,8 +2,8 @@
   <div class="wrapper flex_center">
     <div class="wrapper_left">
       <div class="profile_box">
-        <p class="circle">写真</p>
-        <p class="user_name">@{{ data.name }}</p>
+        <img :src="user.icon_url" alt="icon" class="circle" />
+        <p class="user_name">@{{ user.name }}</p>
         <div class="count_box">
           <div class="post_count_box">
             <p>1</p>
@@ -14,7 +14,7 @@
             <p>いいね</p>
           </div>
         </div>
-        <p>{{ data.profile_text }}</p>
+        <p>{{ user.profile_text }}</p>
         <button class="btn_edit">
           <nuxt-link to="/user/profile-edit">
             プロフィールを編集する
@@ -57,13 +57,16 @@ export default {
   data() {
     return {
       isPost: true,
+      localError: null,
     };
   },
-  async asyncData({ $axios }) {
-    const response = await $axios.get(`http://localhost:3001/api/v1/users/me`);
-    return {
-      data: response.data,
-    };
+  computed: {
+    user() {
+      return this.$store.state.user.user;
+    },
+  },
+  created() {
+    this.$store.dispatch("user/fetchUser");
   },
   methods: {
     showPosts() {

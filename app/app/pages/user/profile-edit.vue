@@ -1,13 +1,25 @@
 <template>
   <div class="profile_wrapper">
+    <Notification :message="localError" v-if="localError" class="mb-4 pb-3" />
     <h1>ユーザー設定変更</h1>
     <form @submit.prevent="editProfile">
       <div class="edit_wrapper">
         <p>アイコン</p>
         <div class="icon_upload">
-          <p class="circle"></p>
+          <img
+            :src="user.icon_url"
+            alt="icon"
+            width="100px"
+            height="100px"
+            class="circle"
+          />
           <label for="file" class="file">画像をアップロード</label>
-          <input type="file" name="file" id="file" style="display: none" />
+          <input
+            type="file"
+            id="file"
+            v-on:change="onFileSelect($event)"
+            style="display: none"
+          />
         </div>
       </div>
       <div class="edit_wrapper">
@@ -23,8 +35,9 @@
         <textarea
           v-model="profile_text"
           placeholder="自己紹介を記入してください"
+          maxlength="200"
         ></textarea>
-        <p>200文字以内</p>
+        <p>残り{{ remainingChars }}文字</p>
       </div>
       <button class="btn_edit">変更する</button>
     </form>
@@ -35,33 +48,63 @@
 export default {
   data: function () {
     return {
+      icon: "",
       name: "",
       email: "",
       profile_text: "",
+      localError: null,
     };
   },
-  async asyncData({ $axios }) {
-    const response = await $axios.get(`http://localhost:3001/api/v1/users/me`);
-    console.log(response.data);
-    return {
-      id: response.data.id,
-      name: response.data.name,
-      email: response.data.email,
-      profile_text: response.data.profile_text,
-    };
+  computed: {
+    remainingChars() {
+      return 200 - this.profile_text.length;
+    },
+    user() {
+      return this.$store.state.user.user;
+    },
+    error() {
+      return this.$store.state.user.error;
+    },
+  },
+  watch: {
+    user(user) {
+      if (user) {
+        this.icon = user.icon;
+        this.name = user.name;
+        this.email = user.email;
+        this.profile_text = user.profile_text;
+      }
+    },
+    error: {
+      handler(error) {
+        if (error) {
+          this.localError = error;
+        }
+      },
+      immediate: true,
+    },
+  },
+  created() {
+    this.$store.dispatch("user/fetchUser");
   },
   methods: {
+    onFileSelect(e) {
+      this.icon = e.target.files[0];
+    },
     async editProfile() {
-      const params = {
-        name: this.name,
-        email: this.email,
-        profile_text: this.profile_text,
-      };
-      const response = await this.$axios.put(
-        `http://localhost:3001/api/v1/users/${this.id}`,
-        params
-      );
-      console.log(response.data);
+      let formData = new FormData();
+      formData.append("user[name]", this.name);
+      formData.append("user[email]", this.email);
+      formData.append("user[profile_text]", this.profile_text);
+      if (this.icon) {
+        formData.append("user[icon]", this.icon);
+      }
+      const params = formData;
+
+      this.$store.dispatch("user/editUser", {
+        userId: this.user.id,
+        params: params,
+      });
     },
   },
 };
