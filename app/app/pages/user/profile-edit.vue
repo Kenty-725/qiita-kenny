@@ -17,7 +17,7 @@
           <input
             type="file"
             id="file"
-            v-on:change="onFileSelect($event)"
+            @change="onFileSelect($event)"
             style="display: none"
           />
         </div>
@@ -46,6 +46,7 @@
 
 <script>
 export default {
+  middleware: "check-auth",
   data: function () {
     return {
       icon: "",
@@ -85,11 +86,7 @@ export default {
     },
   },
   created() {
-    if (!this.$auth.loggedIn) {
-      this.$router.push("/");
-    } else {
-      this.$store.dispatch("user/fetchUser");
-    }
+    this.$store.dispatch("user/fetchUser");
   },
   methods: {
     onFileSelect(e) {

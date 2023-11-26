@@ -2,7 +2,11 @@
   <div class="wrapper flex_center">
     <div class="wrapper_left">
       <div class="profile_box">
-        <img :src="user.icon_url" alt="icon" class="circle" />
+        <img
+          :src="user.icon_url"
+          alt="ユーザーのプロフィール画像"
+          class="circle"
+        />
         <p class="user_name">@{{ user.name }}</p>
         <div class="count_box">
           <div class="post_count_box">
@@ -25,14 +29,14 @@
     <div class="wrapper_right1">
       <div class="flex2">
         <button
-          @click="showPosts"
+          @click="isPost = true"
           class="btn_post"
           :class="{ btn_post_active: isPost, btn_post_inactive: !isPost }"
         >
           記事
         </button>
         <button
-          @click="showLikes"
+          @click="isPost = false"
           class="btn_post"
           :class="{ btn_post_active: !isPost, btn_post_inactive: isPost }"
         >
@@ -50,6 +54,7 @@ import MyPost from "./my-post.vue";
 import MyLike from "./my-like.vue";
 
 export default {
+  middleware: "check-auth",
   components: {
     MyPost,
     MyLike,
@@ -65,20 +70,8 @@ export default {
       return this.$store.state.user.user;
     },
   },
-  created() {
-    if (!this.$auth.loggedIn) {
-      this.$router.push("/");
-    } else {
-      this.$store.dispatch("user/fetchUser");
-    }
-  },
-  methods: {
-    showPosts() {
-      this.isPost = true;
-    },
-    showLikes() {
-      this.isPost = false;
-    },
+  asyncData({ store }) {
+    return store.dispatch("user/fetchUser");
   },
 };
 </script>
