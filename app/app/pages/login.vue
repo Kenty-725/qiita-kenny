@@ -56,6 +56,12 @@ export default {
       error: null,
     };
   },
+  // ログアウト時にキャッシュが残っているためリダイレクト処理を挟んで対応中
+  created() {
+    if (this.$auth.loggedIn) {
+      this.$router.push("/");
+    }
+  },
   methods: {
     async login() {
       try {

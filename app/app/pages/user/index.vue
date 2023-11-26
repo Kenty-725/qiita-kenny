@@ -2,8 +2,12 @@
   <div class="wrapper flex_center">
     <div class="wrapper_left">
       <div class="profile_box">
-        <p class="circle">写真</p>
-        <p class="user_name">@{{ data.name }}</p>
+        <img
+          :src="user.icon_url"
+          alt="ユーザーのプロフィール画像"
+          class="circle"
+        />
+        <p class="user_name">@{{ user.name }}</p>
         <div class="count_box">
           <div class="post_count_box">
             <p>1</p>
@@ -14,21 +18,25 @@
             <p>いいね</p>
           </div>
         </div>
-        <p>自己紹介文がここに入る。</p>
-        <button class="btn_edit">プロフィールを編集する</button>
+        <p>{{ user.profile_text }}</p>
+        <button class="btn_edit">
+          <nuxt-link to="/user/profile-edit">
+            プロフィールを編集する
+          </nuxt-link>
+        </button>
       </div>
     </div>
     <div class="wrapper_right1">
       <div class="flex2">
         <button
-          @click="showPosts"
+          @click="isPost = true"
           class="btn_post"
           :class="{ btn_post_active: isPost, btn_post_inactive: !isPost }"
         >
           記事
         </button>
         <button
-          @click="showLikes"
+          @click="isPost = false"
           class="btn_post"
           :class="{ btn_post_active: !isPost, btn_post_inactive: isPost }"
         >
@@ -46,6 +54,7 @@ import MyPost from "./my-post.vue";
 import MyLike from "./my-like.vue";
 
 export default {
+  middleware: "check-auth",
   components: {
     MyPost,
     MyLike,
@@ -53,21 +62,16 @@ export default {
   data() {
     return {
       isPost: true,
+      localError: null,
     };
   },
-  async asyncData({ $axios }) {
-    const response = await $axios.get(`http://localhost:3001/api/v1/users/me`);
-    return {
-      data: response.data,
-    };
+  computed: {
+    user() {
+      return this.$store.state.user.user;
+    },
   },
-  methods: {
-    showPosts() {
-      this.isPost = true;
-    },
-    showLikes() {
-      this.isPost = false;
-    },
+  asyncData({ store }) {
+    return store.dispatch("user/fetchUser");
   },
 };
 </script>

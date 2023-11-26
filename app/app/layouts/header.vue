@@ -21,7 +21,7 @@
                 <div class="circle" v-on="on"></div>
               </template>
               <v-list>
-                <v-list-item>
+                <v-list-item v-if="this.$auth.loggedIn">
                   <v-list-item-title>
                     <nuxt-link to="/user">マイページ</nuxt-link>
                   </v-list-item-title>
