@@ -38,9 +38,10 @@ export const actions = {
         params
       );
       commit("setUser", response);
+      commit("clearError");
       this.$router.push(`/user`);
     } catch (error) {
-      console.log(error);
+      commit("setError", error.response.data.error);
     }
   },
 
