@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         get 'own_posts', on: :collection
       end
       resources :users, only: [:update] do
-        get 'me', on: :collection     
+        get 'show_current_user', on: :collection     
       end
     end
   end

@@ -85,7 +85,11 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("user/fetchUser");
+    if (!this.$auth.loggedIn) {
+      this.$router.push("/");
+    } else {
+      this.$store.dispatch("user/fetchUser");
+    }
   },
   methods: {
     onFileSelect(e) {

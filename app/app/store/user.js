@@ -9,7 +9,6 @@ export const mutations = {
   },
   setError(state, error) {
     state.error = error;
-    console.log(error);
   },
   clearUser(state) {
     state.user = {};
@@ -23,7 +22,7 @@ export const actions = {
   async fetchUser({ commit }) {
     try {
       const response = await this.$axios.$get(
-        `http://localhost:3001/api/v1/users/me`
+        `http://localhost:3001/api/v1/users/show_current_user`
       );
       commit("setUser", response);
       commit("clearError");
