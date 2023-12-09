@@ -39,7 +39,7 @@
         ></textarea>
         <p>残り{{ remainingChars }}文字</p>
       </div>
-      <button class="btn_edit">変更する</button>
+      <button class="btn_edit">変更するよ</button>
     </form>
   </div>
 </template>
