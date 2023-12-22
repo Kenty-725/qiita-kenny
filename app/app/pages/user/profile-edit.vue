@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="edit_wrapper">
-        <p>ユーザー名</p>
+        <p>ユーザー名s</p>
         <input type="text" v-model="name" />
       </div>
       <div class="edit_wrapper">
