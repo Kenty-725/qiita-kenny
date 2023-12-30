@@ -18,7 +18,9 @@
           <li>
             <v-menu offset-y>
               <template v-slot:activator="{ on }">
-                <div class="circle" v-on="on"></div>
+                <div v-on="on">
+                  <img :src="user.icon_url" alt="写真" class="circle" />
+                </div>
               </template>
               <v-list>
                 <v-list-item v-if="this.$auth.loggedIn">
@@ -56,6 +58,14 @@
 export default {
   data() {
     return {};
+  },
+  async mounted() {
+    await this.$store.dispatch("user/fetchUser");
+  },
+  computed: {
+    user() {
+      return this.$store.state.user.user;
+    },
   },
   methods: {
     async logout() {

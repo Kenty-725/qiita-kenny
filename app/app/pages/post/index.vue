@@ -20,7 +20,7 @@
       </ul>
     </div>
     <div class="post_submit_container">
-      <button class="post_submit">公開する</button>
+      <button class="post_submit btn_green">公開する</button>
     </div>
   </form>
 </template>
@@ -70,5 +70,6 @@ textarea {
 .post_submit_container {
   border-top: 1px solid black;
   padding: 10px;
+  text-align: right;
 }
 </style>

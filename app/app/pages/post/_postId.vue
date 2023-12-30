@@ -2,28 +2,32 @@
   <div class="post_content_wrapper">
     <div class="wrapper_left">
       <ul>
-        <li class="circle">
-          <font-awesome-icon
-            :icon="['far', 'heart']"
-            class="font-awesome-size"
-          />
-        </li>
         <li>
-          <nuxt-link
-            :to="`/post/${data.id}/edit`"
-            v-if="data.is_current_user_post_owner"
-          >
+          <div class="circle">
             <font-awesome-icon
-              :icon="['fas', 'pen-to-square']"
+              :icon="['far', 'heart']"
               class="font-awesome-size"
             />
-          </nuxt-link>
+          </div>
+        </li>
+        <li>
+          <div class="fab-box">
+            <nuxt-link
+              :to="`/post/${data.id}/edit`"
+              v-if="data.is_current_user_post_owner"
+            >
+              <font-awesome-icon
+                :icon="['fas', 'pen-to-square']"
+                class="font-awesome-size"
+              />
+            </nuxt-link>
+          </div>
         </li>
       </ul>
     </div>
 
     <div class="wrapper_right">
-      <div class="fuga">
+      <div class="author_box">
         <p class="circle"></p>
         <div class="content_right">
           <p>@kenny</p>
@@ -58,7 +62,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .post_content_wrapper {
   width: 80%;
   margin: 0 auto;
@@ -80,7 +84,7 @@ export default {
   padding: 10px 25px;
 }
 
-.fuga {
+.author_box {
   display: flex;
 }
 
@@ -97,12 +101,20 @@ export default {
 .wrapper_left {
   margin: 10px 30px;
 }
+
 .wrapper_left li {
   margin-bottom: 15px;
-  text-align: center;
 }
 
 .font-awesome-size {
   font-size: 1.3rem;
+}
+
+.fab-box {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.5rem;
 }
 </style>

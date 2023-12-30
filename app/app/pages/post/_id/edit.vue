@@ -37,7 +37,7 @@
             </button>
           </li>
           <li>
-            <button class="post_submit">公開する</button>
+            <button class="post_submit btn_green">公開する</button>
           </li>
         </ul>
       </div>
@@ -64,7 +64,6 @@ export default {
     const response = await $axios.get(
       `http://localhost:3001/api/v1/posts/${id}`
     );
-    console.log(response.data);
     if (!response.data.is_current_user_post_owner) {
       return redirect(`/post/${id}`);
     }
@@ -118,6 +117,8 @@ li > input,
 textarea {
   width: 100%;
   margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid black;
 }
 
 textarea {
