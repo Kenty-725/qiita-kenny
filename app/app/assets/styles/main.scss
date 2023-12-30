@@ -1,8 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .signup_wrapper {
   display: flex;
   flex-direction: column;
@@ -112,6 +107,21 @@ footer {
   font-size: 1.2rem;
 }
 
+.post_submit {
+  display: inline-block;
+  margin-left: auto;
+  text-align: center;
+  padding: 1px 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.btn_green {
+  background-color: #55c500;
+  color: #fff;
+}
+
+// マークダウン設定
 .markdown {
   h1,
   h2,
@@ -167,18 +177,4 @@ footer {
       }
     }
   }
-}
-
-.post_submit {
-  display: inline-block;
-  margin-left: auto;
-  text-align: center;
-  padding: 1px 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.btn_green {
-  background-color: #55c500;
-  color: #fff;
 }
