@@ -89,7 +89,7 @@ export default {
           },
         });
         if (this.$auth.loggedIn) {
-          this.$router.push("/sample");
+          this.$router.push("/");
         }
       } catch (e) {
         this.error = e.response.data.errors.full_messages;
