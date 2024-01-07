@@ -3,8 +3,8 @@
     <div class="wrapper_left">
       <div class="profile_box">
         <img
-          :src="user.icon_url"
-          alt="ユーザーのプロフィール画像"
+          :src="user.icon_url ? user.icon_url : '/user_default.png'"
+          alt="写真"
           class="circle"
         />
         <p class="user_name">@{{ user.name }}</p>

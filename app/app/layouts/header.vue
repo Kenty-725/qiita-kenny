@@ -19,7 +19,11 @@
             <v-menu offset-y>
               <template v-slot:activator="{ on }">
                 <div v-on="on">
-                  <img :src="user.icon_url" alt="写真" class="circle" />
+                  <img
+                    :src="user.icon_url ? user.icon_url : '/user_default.png'"
+                    alt="写真"
+                    class="circle"
+                  />
                 </div>
               </template>
               <v-list>

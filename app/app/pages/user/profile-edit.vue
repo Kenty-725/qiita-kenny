@@ -7,7 +7,7 @@
         <p>アイコン</p>
         <div class="icon_upload">
           <img
-            :src="user.icon_url"
+            :src="user.icon_url ? user.icon_url : '/user_default.png'"
             alt="icon"
             width="100px"
             height="100px"
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     remainingChars() {
-      return 200 - this.profile_text.length;
+      return 200 - (this.profile_text ? this.profile_text.length : 0);
     },
     user() {
       return this.$store.state.user.user;
